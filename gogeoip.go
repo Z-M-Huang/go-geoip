@@ -11,6 +11,8 @@ import (
 	"github.com/Z-M-Huang/go-geoip/apility"
 	"github.com/Z-M-Huang/go-geoip/extremeiplookup"
 	"github.com/Z-M-Huang/go-geoip/freegeoipapp"
+	"github.com/Z-M-Huang/go-geoip/ipapi"
+	ipwhoise "github.com/Z-M-Huang/go-geoip/ipwhois"
 )
 
 //GetLocation gets the location info from host.
@@ -20,7 +22,15 @@ func GetLocation(host string) (*Location, error) {
 	if err == nil && loc != nil {
 		return loc, nil
 	}
+	loc, err = getIPAPI(host)
+	if err == nil && loc != nil {
+		return loc, nil
+	}
 	loc, err = getExtremeIPLookup(host)
+	if err == nil && loc != nil {
+		return loc, nil
+	}
+	loc, err = getIPWhoise(host)
 	if err == nil && loc != nil {
 		return loc, nil
 	}
@@ -44,6 +54,22 @@ func getFreeGeoIPAppResponse(host string) (*Location, error) {
 	loc.ZipCode = resp.ZipCode
 	loc.Latitude = resp.Latitude
 	loc.Longitude = resp.Longitude
+	return loc, nil
+}
+
+func getIPAPI(host string) (*Location, error) {
+	resp, err := ipapi.Get(host)
+	if err != nil {
+		return nil, fmt.Errorf("ip-api.com %s", err.Error())
+	}
+	loc := &Location{}
+	loc.IPAddress = resp.Query
+	loc.Country = resp.Country
+	loc.Region = resp.RegionName
+	loc.City = resp.City
+	loc.ZipCode = resp.Zip
+	loc.Latitude = resp.Lat
+	loc.Longitude = resp.Lon
 	return loc, nil
 }
 
@@ -71,10 +97,34 @@ func getExtremeIPLookup(host string) (*Location, error) {
 	return loc, nil
 }
 
+func getIPWhoise(host string) (*Location, error) {
+	resp, err := ipwhoise.Get(host)
+	if err != nil {
+		return nil, fmt.Errorf("ipwhoise.io %s", err.Error())
+	}
+	loc := &Location{}
+	loc.IPAddress = resp.IP
+	loc.Country = resp.Country
+	loc.Region = resp.Region
+	loc.City = resp.City
+	loc.ZipCode = ""
+	lat, err := strconv.ParseFloat(resp.Latitude, 64)
+	if err != nil {
+		return nil, errors.New("ipwhoise.io lat is not float64")
+	}
+	loc.Latitude = lat
+	lon, err := strconv.ParseFloat(resp.Longitude, 64)
+	if err != nil {
+		return nil, errors.New("ipwhoise.io lon is not float64")
+	}
+	loc.Longitude = lon
+	return loc, nil
+}
+
 func getApility(host string) (*Location, error) {
 	resp, err := apility.Get(host)
 	if err != nil {
-		return nil, fmt.Errorf("extreme-ip-lookup %s", err.Error())
+		return nil, fmt.Errorf("apility %s", err.Error())
 	}
 	loc := &Location{}
 	loc.IPAddress = resp.IP.Address
