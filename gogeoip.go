@@ -8,9 +8,9 @@ import (
 	"fmt"
 	"strconv"
 
+	"github.com/Z-M-Huang/go-freegeoip"
 	"github.com/Z-M-Huang/go-geoip/apility"
 	"github.com/Z-M-Huang/go-geoip/extremeiplookup"
-	"github.com/Z-M-Huang/go-geoip/freegeoipapp"
 	"github.com/Z-M-Huang/go-geoip/ipwhois"
 	"github.com/Z-M-Huang/go-ipapi"
 )
@@ -18,7 +18,7 @@ import (
 //GetLocation gets the location info from host.
 //host can be ipv4 ipv6 or domain host name
 func GetLocation(host string) (*Location, error) {
-	loc, err := getFreeGeoIPAppResponse(host)
+	loc, err := getFreeGeoIPResponse(host)
 	if err == nil && loc != nil {
 		return loc, nil
 	}
@@ -41,8 +41,8 @@ func GetLocation(host string) (*Location, error) {
 	return nil, errors.New("no service can identify the host name")
 }
 
-func getFreeGeoIPAppResponse(host string) (*Location, error) {
-	resp, err := freegeoipapp.Get(host)
+func getFreeGeoIPResponse(host string) (*Location, error) {
+	resp, err := freegeoip.Get(host)
 	if err != nil {
 		return nil, fmt.Errorf("freegeoip.app %s", err.Error())
 	}
