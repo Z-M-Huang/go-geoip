@@ -18,7 +18,7 @@ import (
 //GetLocation gets the location info from host.
 //host can be ipv4 ipv6 or domain host name
 func GetLocation(host string) (*Location, error) {
-	loc, err := getFreeGeoIPResponse(host)
+	loc, err := getFreeGeoIP(host)
 	if err == nil && loc != nil {
 		return loc, nil
 	}
@@ -41,7 +41,7 @@ func GetLocation(host string) (*Location, error) {
 	return nil, errors.New("no service can identify the host name")
 }
 
-func getFreeGeoIPResponse(host string) (*Location, error) {
+func getFreeGeoIP(host string) (*Location, error) {
 	resp, err := freegeoip.Get(host)
 	if err != nil {
 		return nil, fmt.Errorf("freegeoip.app %s", err.Error())
