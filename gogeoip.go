@@ -8,9 +8,9 @@ import (
 	"fmt"
 	"strconv"
 
+	"github.com/Z-M-Huang/go-extremeiplookup"
 	"github.com/Z-M-Huang/go-freegeoip"
 	"github.com/Z-M-Huang/go-geoip/apility"
-	"github.com/Z-M-Huang/go-geoip/extremeiplookup"
 	"github.com/Z-M-Huang/go-geoip/ipwhois"
 	"github.com/Z-M-Huang/go-ipapi"
 )
