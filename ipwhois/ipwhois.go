@@ -1,4 +1,4 @@
-package ipwhoise
+package ipwhois
 
 import (
 	"encoding/json"

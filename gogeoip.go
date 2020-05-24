@@ -11,8 +11,8 @@ import (
 	"github.com/Z-M-Huang/go-geoip/apility"
 	"github.com/Z-M-Huang/go-geoip/extremeiplookup"
 	"github.com/Z-M-Huang/go-geoip/freegeoipapp"
-	"github.com/Z-M-Huang/go-geoip/ipapi"
-	ipwhoise "github.com/Z-M-Huang/go-geoip/ipwhois"
+	"github.com/Z-M-Huang/go-geoip/ipwhois"
+	"github.com/Z-M-Huang/go-ipapi"
 )
 
 //GetLocation gets the location info from host.
@@ -30,7 +30,7 @@ func GetLocation(host string) (*Location, error) {
 	if err == nil && loc != nil {
 		return loc, nil
 	}
-	loc, err = getIPWhoise(host)
+	loc, err = getIPWhois(host)
 	if err == nil && loc != nil {
 		return loc, nil
 	}
@@ -97,8 +97,8 @@ func getExtremeIPLookup(host string) (*Location, error) {
 	return loc, nil
 }
 
-func getIPWhoise(host string) (*Location, error) {
-	resp, err := ipwhoise.Get(host)
+func getIPWhois(host string) (*Location, error) {
+	resp, err := ipwhois.Get(host)
 	if err != nil {
 		return nil, fmt.Errorf("ipwhoise.io %s", err.Error())
 	}
