@@ -1,9 +1,9 @@
-github.com/Z-M-Huang/go-extremeiplookup v1.0.0 h1:PK+ASQTX1hEQBPorQTwyZNQxGbsjmhyvDOlwGHQui4s=
-github.com/Z-M-Huang/go-extremeiplookup v1.0.0/go.mod h1:R6htYlsf9xx5tfGtQnUe5GxzCc+y9jSH0P+3RhVP254=
-github.com/Z-M-Huang/go-freegeoip v1.0.0 h1:OPS3Sn48dv8mMEPDzOo6cpEnt/YHOx9RiZ0JnUUez70=
-github.com/Z-M-Huang/go-freegeoip v1.0.0/go.mod h1:4orq1xGAw/bzyq4OJfeVmPlHRMDLyop7iGdAivswV4M=
-github.com/Z-M-Huang/go-ipapi v1.0.1 h1:o2aDRx3aJL1iLGRPrY+D3Ej5sXmcOx9/itnKIGVdtsA=
-github.com/Z-M-Huang/go-ipapi v1.0.1/go.mod h1:kIB2M8R214CICoYbnngA2cK3BZxv+fEG7TuULH6FQ8k=
+github.com/Z-M-Huang/go-extremeiplookup v1.0.1 h1:3lgBIzEUxWKXvdqnKvPQuQzHvEivpkaZb83kOobCGDk=
+github.com/Z-M-Huang/go-extremeiplookup v1.0.1/go.mod h1:R6htYlsf9xx5tfGtQnUe5GxzCc+y9jSH0P+3RhVP254=
+github.com/Z-M-Huang/go-freegeoip v1.0.1 h1:QeHX08pqHnicb8XKx+y28G/TcHmPhpGL4/C2zhNOOYY=
+github.com/Z-M-Huang/go-freegeoip v1.0.1/go.mod h1:4orq1xGAw/bzyq4OJfeVmPlHRMDLyop7iGdAivswV4M=
+github.com/Z-M-Huang/go-ipapi v1.0.2 h1:DeEAIiwYGBUWbQ09rpKSz0mHFQX7FKg1CqCUIHPFB44=
+github.com/Z-M-Huang/go-ipapi v1.0.2/go.mod h1:kIB2M8R214CICoYbnngA2cK3BZxv+fEG7TuULH6FQ8k=
 github.com/creack/pty v1.1.9/go.mod h1:oKZEueFk5CKHvIhNR5MUki03XCEU+Q6VDXinZuGJ33E=
 github.com/davecgh/go-spew v1.1.0 h1:ZDRjVQ15GmhC3fiQ8ni8+OwkZQO4DARzQgrnXU1Liz8=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=

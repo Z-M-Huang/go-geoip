@@ -28,7 +28,7 @@ func TestInvalidIPAddress(t *testing.T) {
 }
 
 func TestRateLimit(t *testing.T) {
-	countStart = time.Now().Add(-10 * time.Hour)
+	countStart = time.Now()
 	resetDuration = 1 * time.Hour
 	rateCounter = 11
 	rateLimit = 10

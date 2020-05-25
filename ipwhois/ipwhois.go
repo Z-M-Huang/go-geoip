@@ -101,7 +101,7 @@ func reachedLimit() bool {
 		rateCounter = 0
 		return false
 	}
-	if time.Now().After(countStart.Add(resetDuration)) {
+	if time.Now().Before(countStart.Add(resetDuration)) {
 		return rateCounter >= rateLimit
 	}
 	countStart = time.Now()
